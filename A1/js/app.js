@@ -6,21 +6,24 @@ let button0 = document.getElementById("button0");
 let playerRollText = document.getElementById("playerRollText");
 let playerComputerText= document.getElementById("playerComputerText");
 let resultOfComputer = document.getElementById("resultOfComputer");
-let score = document.getElementById("score");
+let resultText = document.getElementById("score");
 
 //data
 let playerRoll = 0;
 let computerRoll = 0;
-let result = "score";
 
+let playerResult = 0;
+let computerResult =0;
+let drawResult =0;
 
 //processes
 button0.addEventListener("click", function() {
   getRandomNumberOneToSixForPlayer();
-  showPlayerRollResult();
   getRandomNumberOneToSixForComputer();
-  showComputerRollResult();
   resultOfRoll();
+  showPlayerRollResult();
+  showComputerRollResult();
+  showText();
 });
 
 
@@ -34,12 +37,15 @@ function getRandomNumberOneToSixForComputer() {
 
 function resultOfRoll() {
   if(playerRoll > computerRoll){
+    computerResult ++;
     showResult("Computer Wins!");
   }
-  else if (playerRoll< computerRoll){
+  else if (playerRoll < computerRoll){
+    playerResult++;
     showResult("Player Wins!");
   }
-  else if (playerRoll === computerRoll){
+  else if (playerRoll === computerRoll) {
+    drawResult ++;
     showResult("It's a draw");
   }
 }
@@ -56,5 +62,10 @@ function showComputerRollResult(){
 function showResult(text) {
   resultOfComputer.innerHTML = text;
 }
+
+function showText(){
+  resultText.innerHTML = "Win: " + playerResult + " Lose: " + computerResult + " Draw: " + drawResult;
+}
+
 
 
