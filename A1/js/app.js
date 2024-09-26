@@ -66,15 +66,16 @@ function showResult(text) {
 }
 
 function showText(){
-  resultText.innerHTML = "Win: " + playerResult + " Lose: " + computerResult + " Draw: " + drawResult;
+  resultText.innerHTML = "Player Wins:  " + playerResult + " Computer Wins:  " + computerResult + " Draw: " + drawResult;
 }
 
 //COOKIE
 function saveAsCookie(){
   document.cookie = "playerScore=" + playerResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
   document.cookie = "computerScore=" + computerResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
-console.log (" ")
-  document.getElementById("drawScore").innerHTML = drawResult;
+  document.cookie = "drawResult=" + drawResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
+  console.log (" ")
+
 }
 
 function loadGame (){
