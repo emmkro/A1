@@ -71,9 +71,9 @@ function showText(){
 
 //COOKIE
 function saveAsCookie(){
-  document.cookie = "playerScore=" + playerResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
-  document.cookie = "computerScore=" + computerResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
-  document.cookie = "drawResult=" + drawResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
+  document.cookie = "playerScore=" + playerResult + "; expires = Thu, 18 Dec 2064 12:00:00 UTC";
+  document.cookie = "computerScore=" + computerResult + "; expires = Thu, 18 Dec 2064 12:00:00 UTC";
+  document.cookie = "drawResult=" + drawResult + "; expires = Thu, 18 Dec 2064 12:00:00 UTC";
   console.log (" ")
 
 }
