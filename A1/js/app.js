@@ -11,11 +11,12 @@ let resultText = document.getElementById("score");
 //data
 let playerRoll = 0;
 let computerRoll = 0;
-
 let playerResult = 0;
 let computerResult =0;
 let drawResult =0;
 
+loadGame();
+showText ();
 //processes
 button0.addEventListener("click", function() {
   getRandomNumberOneToSixForPlayer();
@@ -24,8 +25,9 @@ button0.addEventListener("click", function() {
   showPlayerRollResult();
   showComputerRollResult();
   showText();
-});
+  saveAsCookie();
 
+});
 
 //controllers
 function getRandomNumberOneToSixForPlayer() {
@@ -67,5 +69,33 @@ function showText(){
   resultText.innerHTML = "Win: " + playerResult + " Lose: " + computerResult + " Draw: " + drawResult;
 }
 
+//COOKIE
+function saveAsCookie(){
+  document.cookie = "playerScore=" + playerResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
+  document.cookie = "computerScore=" + computerResult + "; expires = Thu, 18 Dec 2024 12:00:00 UTC";
+console.log (" ")
+  document.getElementById("drawScore").innerHTML = drawResult;
+}
 
+function loadGame (){
+  playerResult = getCookie ("playerScore");
+  computerResult = getCookie ("computerScore");
+  drawResult = getCookie ("drawResult");
 
+}
+
+function getCookie(cname){
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i<ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+    return 0;
+}
